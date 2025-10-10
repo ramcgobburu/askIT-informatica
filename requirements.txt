@@ -1,0 +1,21 @@
+# Azure Functions Python dependencies
+azure-functions>=1.0.0
+
+# Azure Search dependencies
+azure-search-documents>=11.0.0
+azure-core>=1.0.0
+
+# XML processing for Informatica metadata
+lxml>=4.9.0
+
+# HTTP requests
+requests>=2.28.0
+
+# Azure Storage for blob operations
+azure-storage-blob>=12.0.0
+
+# Environment variable management
+python-dotenv>=0.19.0
+
+# Additional utilities
+urllib3>=1.26.0

@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Azure Functions artifacts
+bin/
+obj/
+appsettings.json
+local.settings.json
+
+# Python tools
+*.pyc
+*.pyo
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# Azure Storage Emulator
+__blobstorage__/
+__queuestorage__/
+__azurite_db*__
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Test files (optional - keep if needed)
+test_*.py
+fix_*.py
+create_pdf*.py
+get_blob_info.py
+process_xml_files.py
+create_search_index.py
+
