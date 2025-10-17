@@ -134,6 +134,17 @@ graph TB
     end
 ```
 
+**Architecture Sequence Steps:**
+- **A**: User Query - Natural language input from data engineers/analysts
+- **B**: Copilot Studio - Microsoft's low-code chatbot platform for conversation management
+- **C**: Custom Connector - Bridge component translating requests to Azure Functions
+- **D**: Azure Function App - Core processing engine with business logic
+- **E**: Azure AI Search - Intelligent search service for workflow metadata
+- **F**: Azure Blob Storage - Cloud storage for XML files and processed data
+- **G**: Workflow Metadata Index - Structured search index with processed workflow info
+- **H**: XML Files - Original Informatica PowerCenter metadata files
+- **I**: Response Processing - Final formatting and validation of search results
+
 ### Detailed System Flow
 
 ```mermaid
@@ -145,28 +156,32 @@ sequenceDiagram
     participant AS as Azure AI Search
     participant BS as Blob Storage
     
-    U->>CS: "Find workflow for sales data"
-    CS->>CC: POST /api/search-workflow
-    CC->>AF: HTTP Request with JSON payload
-    AF->>AS: Search query: "sales data"
-    AS-->>AF: Search results with scores
-    AF->>AF: Process and format results
-    AF-->>CC: JSON response with workflows
-    CC-->>CS: Formatted response
-    CS-->>U: "Found 3 workflows: wfl_sales_daily, wfl_sales_monthly..."
+    U->>CS: A. "Find workflow for sales data"
+    CS->>CC: B. POST /api/search-workflow
+    CC->>AF: C. HTTP Request with JSON payload
+    AF->>AS: D. Search query: "sales data"
+    AS-->>AF: E. Search results with scores
+    AF->>AF: F. Process and format results
+    AF-->>CC: G. JSON response with workflows
+    CC-->>CS: H. Formatted response
+    CS-->>U: I. "Found 3 workflows: wfl_sales_daily, wfl_sales_monthly..."
     
     Note over U,BS: Debugging Flow
-    U->>CS: "Why is sales_summary table empty?"
-    CS->>CC: POST /api/debug-table
-    CC->>AF: HTTP Request with table name
-    AF->>AS: Search for workflows using "sales_summary"
-    AS-->>AF: Workflow dependencies
-    AF->>AS: Get detailed workflow info
-    AS-->>AF: Source tables, transformations, status
-    AF-->>CC: Debug analysis with recommendations
-    CC-->>CS: "Table is empty because wfl_sales_daily failed. Check source table permissions."
-    CS-->>U: Debugging recommendations
+    U->>CS: J. "Why is sales_summary table empty?"
+    CS->>CC: K. POST /api/debug-table
+    CC->>AF: L. HTTP Request with table name
+    AF->>AS: M. Search for workflows using "sales_summary"
+    AS-->>AF: N. Workflow dependencies
+    AF->>AS: O. Get detailed workflow info
+    AS-->>AF: P. Source tables, transformations, status
+    AF-->>CC: Q. Debug analysis with recommendations
+    CC-->>CS: R. "Table is empty because wfl_sales_daily failed. Check source table permissions."
+    CS-->>U: S. Debugging recommendations
 ```
+
+**Sequence Flow Steps:**
+- **A-I**: Search Workflow Process (User Query → Response)
+- **J-S**: Debugging Process (Debug Query → Recommendations)
 
 ### Component Overview
 
