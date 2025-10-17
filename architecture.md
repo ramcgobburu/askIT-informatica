@@ -4,14 +4,14 @@
 
 ```mermaid
 graph TB
-    A[User Query] --> B[Copilot Studio]
-    B --> C[Custom Connector]
-    C --> D[Azure Function App]
-    D --> E[Azure AI Search]
-    D --> F[Azure Blob Storage]
-    E --> G[Workflow Metadata Index]
-    F --> H[XML Files]
-    D --> I[Response Processing]
+    A["A: User Query"] --> B["B: Copilot Studio"]
+    B --> C["C: Custom Connector"]
+    C --> D["D: Azure Function App"]
+    D --> E["E: Azure AI Search"]
+    D --> F["F: Azure Blob Storage"]
+    E --> G["G: Workflow Metadata Index"]
+    F --> H["H: XML Files"]
+    D --> I["I: Response Processing"]
     I --> B
     B --> A
     
